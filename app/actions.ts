@@ -8,13 +8,16 @@ import { redirect } from "next/navigation";
 export const signUpAction = async (formData: FormData) => {
   const email = formData.get("email")?.toString();
   const password = formData.get("password")?.toString();
+  const fname = formData.get("fname")?.toString();
+  const lname = formData.get("lname")?.toString();
+
   const supabase = await createClient();
   const origin = (await headers()).get("origin");
 
   if (!email || !password) {
     return encodedRedirect(
-      "error",
       "/sign-up",
+      "error",
       "Email and password are required",
     );
   }
@@ -24,16 +27,23 @@ export const signUpAction = async (formData: FormData) => {
     password,
     options: {
       emailRedirectTo: `${origin}/auth/callback`,
+      data: {
+        fname,
+        lname
+      }
     },
   });
 
   if (error) {
     console.error(error.code + " " + error.message);
-    return encodedRedirect("error", "/sign-up", error.message);
+    return encodedRedirect(
+      "/sign-up",
+      "error",
+      error.message);
   } else {
     return encodedRedirect(
-      "success",
       "/sign-up",
+      "success",
       "Thanks for signing up! Please check your email for a verification link.",
     );
   }
@@ -50,7 +60,10 @@ export const signInAction = async (formData: FormData) => {
   });
 
   if (error) {
-    return encodedRedirect("error", "/sign-in", error.message);
+    return encodedRedirect(
+      "/sign-in",
+      "error",
+      error.message);
   }
 
   return redirect("/protected");
@@ -63,18 +76,21 @@ export const forgotPasswordAction = async (formData: FormData) => {
   const callbackUrl = formData.get("callbackUrl")?.toString();
 
   if (!email) {
-    return encodedRedirect("error", "/forgot-password", "Email is required");
+    return encodedRedirect(
+      "/forgot-password",
+      "error",
+      "Email is required");
   }
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: `${origin}/auth/callback?redirect_to=/protected/reset-password`,
+    redirectTo: `${origin}/auth/callback?redirect_to=/reset-password`,
   });
 
   if (error) {
     console.error(error.message);
     return encodedRedirect(
-      "error",
       "/forgot-password",
+      "error",
       "Could not reset password",
     );
   }
@@ -84,8 +100,8 @@ export const forgotPasswordAction = async (formData: FormData) => {
   }
 
   return encodedRedirect(
-    "success",
     "/forgot-password",
+    "success",
     "Check your email for a link to reset your password.",
   );
 };
@@ -98,16 +114,16 @@ export const resetPasswordAction = async (formData: FormData) => {
 
   if (!password || !confirmPassword) {
     encodedRedirect(
+      "/reset-password",
       "error",
-      "/protected/reset-password",
       "Password and confirm password are required",
     );
   }
 
   if (password !== confirmPassword) {
     encodedRedirect(
+      "/reset-password",
       "error",
-      "/protected/reset-password",
       "Passwords do not match",
     );
   }
@@ -118,13 +134,16 @@ export const resetPasswordAction = async (formData: FormData) => {
 
   if (error) {
     encodedRedirect(
+      "/reset-password",
       "error",
-      "/protected/reset-password",
       "Password update failed",
     );
   }
 
-  encodedRedirect("success", "/protected/reset-password", "Password updated");
+  encodedRedirect(
+    "/reset-password",
+    "success",
+    "Password updated");
 };
 
 export const signOutAction = async () => {
