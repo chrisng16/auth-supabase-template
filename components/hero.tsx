@@ -1,12 +1,35 @@
+import Link from "next/link";
+import { Button } from "./ui/button";
+
 const Hero = () => {
   return (
-    <div className="flex flex-col gap-16 items-center">
-      <h1 className="sr-only">Supabase and Next.js Starter Template</h1>
-      <p className="text-3xl lg:text-4xl !leading-tight mx-auto max-w-xl text-center">
-        Quick and Simple Waitlist Solution for Your Business
-      </p>
-      <div className="w-full p-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent my-8" />
-    </div>
+    <section className="container max-w-7xl mx-auto px-4 py-32 relative">
+      <div className="text-center space-y-4 relative z-10">
+        <div>
+          <h1 className="text-3xl md:text-6xl font-bold tracking-tighter bg-gradient-to-r from-primary to-[#7551d1] dark:to-[#9641ff] bg-clip-text text-transparent">
+            Next.js x Supabase
+          </h1>
+          <h2 className="text-xl md:text-4xl font-bold mt-4 bg-gradient-to-r from-foreground/80 to-foreground bg-clip-text text-transparent">
+            Auth Template
+          </h2>
+        </div>
+
+        <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto px-6 text-balance">
+          Open-source template for building modern web applications with Next.js
+          and Supabase authentication.
+        </p>
+
+        <div className="flex gap-4 justify-center">
+          <Button size="lg" className="px-8" asChild>
+            <Link href="/register">Get Started</Link>
+          </Button>
+        </div>
+      </div>
+
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl opacity-20 blur-3xl">
+        <div className="aspect-square w-full bg-primary/30 rounded-full"></div>
+      </div>
+    </section>
   );
 };
 export default Hero;

@@ -8,8 +8,7 @@ import { redirect } from "next/navigation";
 export const signUpAction = async (formData: FormData) => {
   const email = formData.get("email")?.toString();
   const password = formData.get("password")?.toString();
-  const fname = formData.get("fname")?.toString();
-  const lname = formData.get("lname")?.toString();
+  const full_name = formData.get("full_name")?.toString();
 
   const supabase = await createClient();
   const origin = (await headers()).get("origin");
@@ -28,8 +27,7 @@ export const signUpAction = async (formData: FormData) => {
     options: {
       emailRedirectTo: `${origin}/auth/callback`,
       data: {
-        fname,
-        lname
+        full_name
       }
     },
   });
@@ -58,6 +56,29 @@ export const signInAction = async (formData: FormData) => {
     email,
     password,
   });
+
+  if (error) {
+    return encodedRedirect(
+      "/sign-in",
+      "error",
+      error.message);
+  }
+
+  return redirect("/protected");
+};
+export const signInWithGoogle = async (formData: FormData) => {
+  const supabase = await createClient();
+  console.log("in here")
+  const { data, error } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: {
+      redirectTo: 'http://localhost:3000/auth/callback',
+    },
+  })
+
+  if (data.url) {
+    redirect(data.url)
+  }
 
   if (error) {
     return encodedRedirect(

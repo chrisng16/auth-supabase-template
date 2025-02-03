@@ -39,27 +39,16 @@ export default async function Signup(props: {
           <form>
             <div className="grid">
               <div className="grid gap-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="fname">First Name</Label>
-                    <Input
-                      id="fname"
-                      type="text"
-                      name="fname"
-                      placeholder="First Name"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="lname">Last Name</Label>
-                    <Input
-                      id="lname"
-                      type="text"
-                      name="lname"
-                      placeholder="Last Name"
-                      required
-                    />
-                  </div>
+                <div className="grid gap-2">
+                  <Label htmlFor="full_name">Full Name</Label>
+                  <Input
+                    id="full_name"
+                    type="text"
+                    name="full_name"
+                    placeholder="Full Name"
+                    required
+                    autoComplete="name"
+                  />
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="email">Email</Label>
@@ -69,6 +58,7 @@ export default async function Signup(props: {
                     name="email"
                     placeholder="m@example.com"
                     required
+                    autoComplete="email"
                   />
                 </div>
                 <div className="grid gap-2">
@@ -79,6 +69,7 @@ export default async function Signup(props: {
                     name="password"
                     placeholder="********"
                     required
+                    autoComplete="password"
                   />
                 </div>
 
