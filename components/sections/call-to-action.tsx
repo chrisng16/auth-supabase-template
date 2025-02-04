@@ -26,7 +26,8 @@ const CallToAction = () => {
             asChild
           >
             <Link
-              href="https://github.com/yourusername/nextsupabase"
+              href="https://github.com/chrisng16/auth-supabase-template"
+              rel="noreferrer noopener"
               target="_blank"
             >
               Explore on GitHub
