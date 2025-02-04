@@ -79,6 +79,7 @@ export const signInWithGoogle = async (formData: FormData) => {
   })
 
   if (data.url) {
+    console.log(data.url)
     redirect(data.url)
   }
 
