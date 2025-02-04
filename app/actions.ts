@@ -5,7 +5,7 @@ import { createClient } from "@/utils/supabase/server";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
-const siteURL = process.env.ENVIRONMENT === "production" ? "https://chrisng16-nextjs-supabase-template.vercel.app" : "http://localhost:3000"
+const siteURL = process.env.NEXT_PUBLIC_ENVIRONMENT === "production" ? "https://chrisng16-nextjs-supabase-template.vercel.app" : "http://localhost:3000"
 
 export const signUpAction = async (formData: FormData) => {
   const email = formData.get("email")?.toString();
