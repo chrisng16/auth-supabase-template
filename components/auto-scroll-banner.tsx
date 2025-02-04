@@ -8,7 +8,7 @@ interface InfiniteScrollBannerProps {
 
 const InfiniteScrollBanner = ({
   children,
-  speed = "normal",
+  speed = "fast",
 }: InfiniteScrollBannerProps) => {
   const duration = {
     slow: "40s",
@@ -27,16 +27,12 @@ const InfiniteScrollBanner = ({
         style={
           {
             "--marquee-speed": duration,
-            "--item-gap": "4rem",
+            "--item-gap": "6rem",
           } as React.CSSProperties
         }
       >
         {[...childrenArray, ...childrenArray].map((child, index) => (
-          <div
-            key={index}
-            className="flex-shrink-0"
-            aria-hidden={index >= childrenArray.length}
-          >
+          <div key={index} aria-hidden={index >= childrenArray.length}>
             {child}
           </div>
         ))}

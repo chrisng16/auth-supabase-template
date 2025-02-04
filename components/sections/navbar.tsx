@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import HeaderAuth from "./header-auth";
+import HeaderAuth from "../header-auth";
 
 const Navbar = () => {
   return (

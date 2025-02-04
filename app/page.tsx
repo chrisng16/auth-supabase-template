@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardHeader,
@@ -6,10 +5,9 @@ import {
   CardDescription,
   CardContent,
 } from "@/components/ui/card";
-import Link from "next/link";
-import { Code2, PackageOpen, ShieldCheck, Github, Badge } from "lucide-react";
-import Badges from "@/components/badges";
-import Hero from "@/components/hero";
+import { Code2, PackageOpen, ShieldCheck } from "lucide-react";
+import Badges from "@/components/sections/badges";
+import Hero from "@/components/sections/hero";
 import CallToAction from "@/components/sections/call-to-action";
 
 const features = [
@@ -36,8 +34,8 @@ export default function Home() {
   return (
     <div className="min-h-screen relative overflow-hidden">
       <div className="absolute inset-0 -z-10 opacity-20">
-        <div className="absolute inset-0 bg-[radial-gradient(#353638_1px,transparent_1px)] dark:bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent via-25% to-transparent/30"></div>
+        <div className="fixed inset-0 bg-[radial-gradient(#353638_1px,transparent_1px)] dark:bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div className="fixed h-screen inset-0 bg-gradient-to-b from-background/60 to-background"></div>
       </div>
       <Hero />
       <Badges />

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 const Hero = () => {
   return (
@@ -21,7 +21,13 @@ const Hero = () => {
 
         <div className="flex gap-4 justify-center">
           <Button size="lg" className="px-8" asChild>
-            <Link href="/register">Get Started</Link>
+            <Link
+              href="https://github.com/chrisng16/auth-supabase-template"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              Get Started
+            </Link>
           </Button>
         </div>
       </div>
