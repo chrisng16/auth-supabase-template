@@ -1,4 +1,3 @@
-// components/InfiniteScrollBanner.tsx
 import React, { ReactNode } from "react";
 
 interface InfiniteScrollBannerProps {

@@ -1,5 +1,4 @@
 import React from "react";
-import { ThemeSwitcher } from "./theme-switcher";
 import Link from "next/link";
 
 const Footer = () => {
