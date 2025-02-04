@@ -5,6 +5,8 @@ import { createClient } from "@/utils/supabase/server";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
+const siteURL = process.env.ENVIRONMENT === "production" ? "https://chrisng16-nextjs-supabase-template.vercel.app" : "http://localhost:3000"
+
 export const signUpAction = async (formData: FormData) => {
   const email = formData.get("email")?.toString();
   const password = formData.get("password")?.toString();
@@ -72,7 +74,7 @@ export const signInWithGoogle = async (formData: FormData) => {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo: 'http://localhost:3000/auth/callback',
+      redirectTo: `${siteURL}/auth/callback`,
     },
   })
 
