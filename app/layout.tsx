@@ -31,7 +31,9 @@ export default function RootLayout({
           <main className="min-h-screen flex flex-col items-center">
             <div className="flex-1 w-full h-screen flex flex-col items-center relative">
               <Navbar />
-              <div className="w-full mx-auto relative">{children}</div>
+              <div className="w-full mx-auto relative max-w-5xl">
+                {children}
+              </div>
               <Footer />
             </div>
           </main>

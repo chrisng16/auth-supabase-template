@@ -8,10 +8,12 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-center items-center gap-8">
           <nav className="flex gap-6 text-sm text-muted-foreground">
             <Link
-              href="/docs"
+              href="https://www.nSquare.dev"
+              target="_blank"
+              rel="noreferrer noopener"
               className="hover:text-foreground transition-colors"
             >
-              Documentation
+              Portfolio
             </Link>
             <Link
               href="https://www.linkedin.com/in/chrisng16"

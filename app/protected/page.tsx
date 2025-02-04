@@ -14,7 +14,7 @@ export default async function ProtectedPage() {
   }
 
   return (
-    <div className="flex-1 w-full h-full flex flex-col gap-12">
+    <div className="flex-1 w-full h-full flex flex-col gap-12 p-6">
       <div className="w-full">
         <div className="bg-accent text-sm p-3 px-5 rounded-md text-foreground flex gap-3 items-center">
           <InfoIcon size="16" strokeWidth={2} />
@@ -24,7 +24,7 @@ export default async function ProtectedPage() {
       </div>
       <div className="flex flex-col gap-2 items-start">
         <h2 className="font-bold text-2xl mb-4">Your user details</h2>
-        <pre className="text-xs font-mono p-3 rounded border">
+        <pre className="text-xs font-mono p-3 rounded border w-full text-wrap">
           {JSON.stringify(user, null, 2)}
         </pre>
       </div>

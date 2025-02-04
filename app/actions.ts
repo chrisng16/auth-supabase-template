@@ -74,7 +74,7 @@ export const signInWithGoogle = async (formData: FormData) => {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: 'google',
     options: {
-      redirectTo: `https://chrisng16-nextjs-supabase-template.vercel.app/auth/callback`,
+      redirectTo: `${siteURL}/auth/callback`,
     },
   })
 
