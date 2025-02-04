@@ -1,5 +1,3 @@
-import NextLogo from "@/components/logos/next-logo";
-import SupabaseLogo from "@/components/logos/supabase-logo";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,6 +10,8 @@ import Link from "next/link";
 import { Code2, PackageOpen, ShieldCheck, Github, Badge } from "lucide-react";
 import Badges from "@/components/badges";
 import Hero from "@/components/hero";
+import CallToAction from "@/components/sections/call-to-action";
+
 const features = [
   {
     title: "Authentication Ready",
@@ -35,14 +35,14 @@ const features = [
 export default function Home() {
   return (
     <div className="min-h-screen relative overflow-hidden">
-      <div className="absolute inset-0 -z-10 opacity-15">
-        <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
+      <div className="absolute inset-0 -z-10 opacity-20">
+        <div className="absolute inset-0 bg-[radial-gradient(#353638_1px,transparent_1px)] dark:bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent via-25% to-transparent/30"></div>
       </div>
       <Hero />
       <Badges />
       <section className="container max-w-7xl mx-auto px-6 py-6 md:py-20">
-        <div className="text-center mb-8 md:mb-16 animate-fade-in">
+        <div className="text-center mb-8 md:mb-16">
           <h2 className="text-2xl sm:text-3xl font-bold mb-4">
             Why Choose This Template?
           </h2>
@@ -52,7 +52,7 @@ export default function Home() {
         </div>
 
         <div className="grid sm:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
+          {features.map((feature) => (
             <div
               key={feature.title}
               className="group relative mx-auto w-full h-full"
@@ -82,8 +82,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+      <CallToAction />
 
-      <section className="container max-w-7xl mx-auto px-4 py-6 md:py-20 animate-fade-in">
+      {/* <section className="container max-w-7xl mx-auto px-4 py-6 md:py-20 animate-fade-in">
         <div className="relative bg-background rounded-3xl p-px overflow-hidden shadow">
           <div className="absolute inset-0 bg-gradient-to-br from-[#9641ff70] via-[#a798b970] to-[#7551d170]"></div>
           <div className="relative bg-background rounded-3xl p-4 py-8 text-center space-y-6">
@@ -103,13 +104,13 @@ export default function Home() {
                 href="https://github.com/yourusername/nextsupabase"
                 target="_blank"
               >
-                <Github className="w-5 h-5" />
+                <GithubLogo />
                 Explore on GitHub
               </Link>
             </Button>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

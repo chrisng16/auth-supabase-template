@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 
 const Hero = () => {
   return (
-    <section className="container max-w-7xl mx-auto px-4 py-32 relative">
+    <section className="container max-w-7xl mx-auto px-4 py-32 relative flex items-center justify-center h-[calc(100svh-8rem)]">
       <div className="text-center space-y-4 relative z-10">
         <div>
           <h1 className="text-3xl md:text-6xl font-bold tracking-tighter bg-gradient-to-r from-primary to-[#7551d1] dark:to-[#9641ff] bg-clip-text text-transparent">
@@ -14,7 +14,7 @@ const Hero = () => {
           </h2>
         </div>
 
-        <p className="text-base md:text-xl text-muted-foreground max-w-2xl mx-auto px-6 text-balance">
+        <p className="text-base md:text-xl text-foreground max-w-2xl mx-auto px-6 text-balance">
           Open-source template for building modern web applications with Next.js
           and Supabase authentication.
         </p>
@@ -24,10 +24,6 @@ const Hero = () => {
             <Link href="/register">Get Started</Link>
           </Button>
         </div>
-      </div>
-
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-6xl opacity-20 blur-3xl">
-        <div className="aspect-square w-full bg-primary/30 rounded-full"></div>
       </div>
     </section>
   );

@@ -15,29 +15,29 @@ const Footer = () => {
               Documentation
             </Link>
             <Link
-              href="https://github.com/yourusername/nextsupabase"
+              href="https://www.linkedin.com/in/chrisng16"
               target="_blank"
+              rel="noreferrer noopener"
+              className="hover:text-foreground transition-colors"
+            >
+              LinkedIn
+            </Link>
+            <Link
+              href="https://github.com/chrisng16/auth-supabase-template"
+              target="_blank"
+              rel="noreferrer noopener"
               className="hover:text-foreground transition-colors"
             >
               GitHub
-            </Link>
-            <Link
-              href="/privacy"
-              className="hover:text-foreground transition-colors"
-            >
-              Privacy
-            </Link>
-            <Link
-              href="/terms"
-              className="hover:text-foreground transition-colors"
-            >
-              Terms
             </Link>
           </nav>
         </div>
         <div className="mt-8 text-center text-sm text-muted-foreground">
           © {new Date().getFullYear()}{" "}
-          <a href="https://nSquare.dev">nSquare.dev.</a> MIT Licensed.
+          <a href="https://nSquare.dev" target="_blank">
+            nSquare.dev.
+          </a>{" "}
+          MIT Licensed.
         </div>
       </div>
     </footer>
